@@ -31,6 +31,12 @@ set t_Co=256
 let g:solarized_termcolors=256
 "colorscheme solarized
 
+" window Split
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
