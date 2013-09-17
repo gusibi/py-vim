@@ -1,8 +1,23 @@
 "开启语法高亮
 syntax on
 "依文件类型设置自动缩进
+filetype on
 filetype indent plugin on
+autocmd FileType html setlocal et sta sw=2 sts=2
 autocmd FileType python setlocal et sta sw=4 sts=4
+
+"自动对齐      
+set autoindent  
+set cindent
+
+"智能选择对齐方式      
+set smartindent 
+
+"tab为4个空格      
+set tabstop=4  
+  
+"当前行之间交错时使用4个空格      
+set shiftwidth=4 
 
 " 使用Backspace
 set nocompatible
@@ -10,11 +25,17 @@ set backspace=indent,eol,start
 
 " 高亮搜索结果
 set hlsearch
+
+"快速匹配      
+set incsearch  
  
 "显示当前的行号列号：
 set ruler
 "在状态栏显示正在输入的命令
 set showcmd
+
+" 粘贴模式
+set pastetoggle=<F12>
  
 "显示行号：
 set number
@@ -31,7 +52,7 @@ set t_Co=256
 let g:solarized_termcolors=256
 "colorscheme solarized
 
-" window Split
+" window split
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
@@ -59,6 +80,10 @@ Bundle 'klen/python-mode'
 Bundle 'vim-scripts/Emmet.vim'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'honza/vim-snippets'
+Bundle 'msanders/snipmate.vim'
+Bundle 'ervandew/supertab'
+Bundle 'vim-scripts/taglist.vim'
 
 " Powerline setup
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
@@ -77,5 +102,25 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " Don't autofold code
 let g:pymode_folding = 0
 
+let g:snipMate = {}
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails,ruby-1.9'
+
 " 记住上次编辑位置
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
+" zen coding setting
+let g:user_emmet_expandabbr_key = '<c-e>'
+let g:use_emmet_complete_tag = 1
+
+" 设置SuperTab
+let g:SuperTabRetainCompletionType="context"
+
+" 设置Ctags
+map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>  
+
+" 设置Ctags
+" 按下F3就可以呼出了
+map <F4> : Tlist<CR> 
+" 1为让窗口显示在右边，0为显示在左边 
+let Tlist_Use_Right_Window=1
