@@ -6,28 +6,9 @@ python vim 环境配置
 ## 配置指南 ##
 ###安装 Vundle###
 
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    sh setup.sh
 
-添加一下到 .vimrc
-
-    set nocompatible
-    filetype off
-    
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
-    
-    " let Vundle manage Vundle
-    " required!
-    Bundle 'gmarik/vundle'
-    
-    " The bundles you install will be listed here
-    
-    filetype plugin indent on
-    
-    " The rest of your config follows here
-
-在vim 中输入命令
-    :BundleList
+如果需要有依赖需要安装 手动安装(ctags cMake...)
 
 ### 高亮超出行长度的部分 ###
 
