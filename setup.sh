@@ -9,6 +9,9 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 # install plugininstall
 vim +PluginInstall +qall
 
+# install cmake
+# brew install cmake
+
 # Compiling YCM
 # https://github.com/Valloric/YouCompleteMe
 cd ~/.vim/bundle/YouCompleteMe
